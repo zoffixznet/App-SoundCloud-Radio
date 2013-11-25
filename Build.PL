@@ -23,4 +23,9 @@ my $builder = Module::Build->new(
     create_makefile_pl => 'traditional',
 );
 
+if ( $ENV{RELEASE_TESTING} ) {
+    system('pod2text lib/App/Soundcloud/Radio.pm > README');
+}
+
+
 $builder->create_build_script();
